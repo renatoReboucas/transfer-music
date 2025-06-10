@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // import { auth } from "@/lib/auth";
 import LoginForm from "./_components/login-form";
-import SignUpFormFull from "./_components/sign-up-form-full";
+import SignUpForm from "./_components/sign-up-form";
 
 const AuthenticationPage = async () => {
   // const session = await auth.api.getSession({
@@ -25,7 +25,7 @@ const AuthenticationPage = async () => {
           <LoginForm />
         </TabsContent>
         <TabsContent value="signup">
-          <SignUpFormFull />
+          <SignUpForm />
         </TabsContent>
       </Tabs>
     </div>
