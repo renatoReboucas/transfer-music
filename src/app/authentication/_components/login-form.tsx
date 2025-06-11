@@ -68,6 +68,7 @@ export default function LoginForm() {
     });
   };
   const handleSpotifyLogin = async () => {
+    console.log("handleSpotifyLogin");
     await authClient.signIn.social({
       provider: "spotify",
       callbackURL: "/dashboard",
