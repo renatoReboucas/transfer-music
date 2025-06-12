@@ -56,7 +56,7 @@ export default function SignUpForm() {
         },
         {
           onSuccess: () => {
-            router.push("/dashboard");
+            router.push("/features/migration");
           },
           onError: (ctx) => {
             if (ctx.error.code === "USER_ALREADY_EXISTS") {

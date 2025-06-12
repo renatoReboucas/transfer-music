@@ -1,4 +1,5 @@
 import { ArrowRight, Music, Play } from "lucide-react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
@@ -28,8 +29,8 @@ export const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="mx-auto max-w-4xl">
           {/* Badge */}
-          <div className="bg-primary/10 text-primary mb-8 inline-flex animate-pulse items-center rounded-full px-4 py-2 text-sm font-medium">
-            <span className="mr-2 h-2 w-2 rounded-full bg-green-500"></span>
+          <div className="text-primary mb-8 inline-flex animate-pulse items-center rounded-full bg-zinc-200 px-4 py-2 text-sm font-medium">
+            <span className="mr-2 h-2 w-2 rounded-full bg-green-500 text-zinc-900"></span>
             Migração rápida e segura
           </div>
 
@@ -49,24 +50,26 @@ export const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              className="from-spotify hover:to-spotify transform rounded-xl bg-gradient-to-r to-green-600 px-8 py-6 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-green-600 hover:shadow-xl"
-            >
-              Começar Migração Gratuita
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
+            <Link href="/features/migration">
+              <Button
+                size="lg"
+                className="to-gradient-radial-spotify hover:from-gradient-radial-spotify transform rounded-xl px-8 py-6 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                Começar Migração Gratuita
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            {/* <Button
               variant="outline"
               size="lg"
-              className="hover:bg-primary/5 rounded-xl border-2 px-8 py-6 text-lg font-semibold transition-all duration-300"
+              className="rounded-xl border-2 bg-zinc-50 px-8 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               Ver Como Funciona
-            </Button>
+            </Button> */}
           </div>
 
           {/* Stats */}
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 md:grid-cols-3">
+          {/* <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 md:grid-cols-3">
             <div className="text-center">
               <div className="text-primary mb-2 text-3xl font-bold">500K+</div>
               <div className="text-muted-foreground">Playlists Migradas</div>
@@ -79,7 +82,7 @@ export const Hero = () => {
               <div className="text-primary mb-2 text-3xl font-bold">30s</div>
               <div className="text-muted-foreground">Tempo Médio</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

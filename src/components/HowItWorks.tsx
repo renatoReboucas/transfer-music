@@ -52,11 +52,11 @@ export const HowItWorks = () => {
                   <CardContent className="p-8 text-center">
                     <div className="relative mb-6">
                       <div
-                        className={`bg-primary/10 inline-flex h-16 w-16 items-center justify-center rounded-full ${step.color}`}
+                        className={`inline-flex h-16 w-16 items-center justify-center rounded-full bg-zinc-200 ${step.color}`}
                       >
                         <step.icon className="h-8 w-8" />
                       </div>
-                      <div className="bg-primary text-primary-foreground absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold">
+                      <div className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 text-sm font-bold text-white">
                         {index + 1}
                       </div>
                     </div>

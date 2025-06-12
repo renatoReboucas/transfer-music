@@ -1,4 +1,4 @@
-import { Clock, RefreshCw, Shield, Star, Users, Zap } from "lucide-react";
+import { RefreshCw, Star, Zap } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -7,32 +7,32 @@ const features = [
     icon: Zap,
     title: "Migração Instantânea",
     description:
-      "Transfira suas playlists em segundos com nossa tecnologia avançada de matching musical.",
+      "Transfira suas playlists em segundos com nossa tecnologia avançada.",
   },
-  {
-    icon: Shield,
-    title: "100% Seguro",
-    description:
-      "Seus dados estão protegidos. Não armazenamos credenciais e usamos OAuth oficial.",
-  },
+  // {
+  //   icon: Shield,
+  //   title: "100% Seguro",
+  //   description:
+  //     "Seus dados estão protegidos. Não armazenamos credenciais e usamos OAuth oficial.",
+  // },
   {
     icon: RefreshCw,
     title: "Sincronização Bidirecional",
     description:
       "Migre do Spotify para YouTube Premium e vice-versa sem perder nenhuma música.",
   },
-  {
-    icon: Users,
-    title: "Playlists Colaborativas",
-    description:
-      "Mantenha a funcionalidade colaborativa mesmo após a migração entre plataformas.",
-  },
-  {
-    icon: Clock,
-    title: "Histórico Preservado",
-    description:
-      "Mantemos a ordem, datas de criação e metadados importantes de suas playlists.",
-  },
+  // {
+  //   icon: Users,
+  //   title: "Playlists Colaborativas",
+  //   description:
+  //     "Mantenha a funcionalidade colaborativa mesmo após a migração entre plataformas.",
+  // },
+  // {
+  //   icon: Clock,
+  //   title: "Histórico Preservado",
+  //   description:
+  //     "Mantemos a ordem, datas de criação e metadados importantes de suas playlists.",
+  // },
   {
     icon: Star,
     title: "Qualidade Garantida",
@@ -47,7 +47,7 @@ export const Features = () => {
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold md:text-5xl">
-            Por que escolher o PlaylistMigrator?
+            Por que escolher o TransferMusic?
           </h2>
           <p className="text-muted-foreground mx-auto max-w-2xl text-xl">
             A solução mais confiável e rápida para migrar suas músicas favoritas

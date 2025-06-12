@@ -1,8 +1,12 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import "./globals.css";
 
+import Navbar from "@/components/Navbar";
+// import { Footer } from "@/components/Footer";
+import ScrollIcon from "@/components/ScroolIcon";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryProvider } from "@/providers/react-query";
 
@@ -24,10 +28,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${manrope.variable} antialiased`}>
+        <Navbar />
         <ReactQueryProvider>
           <NuqsAdapter>{children}</NuqsAdapter>
         </ReactQueryProvider>
         <Toaster position="bottom-center" richColors theme="light" />
+        {/* <Footer /> */}
+        <ScrollIcon />
       </body>
     </html>
   );

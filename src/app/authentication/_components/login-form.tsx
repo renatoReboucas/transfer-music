@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -26,6 +27,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import { GoogleLogin, SpotifyLogin } from "@/lib/functions/logins";
 
 const loginSchema = z.object({
   email: z.string().email("Email inválido").min(1, "Email é obrigatório"),
@@ -61,26 +63,10 @@ export default function LoginForm() {
     );
   };
   const handleGoogleLogin = async () => {
-    await authClient.signIn.social({
-      provider: "google",
-      callbackURL: "/dashboard",
-      scopes: ["email", "profile"],
-    });
+    await GoogleLogin();
   };
   const handleSpotifyLogin = async () => {
-    console.log("handleSpotifyLogin");
-    await authClient.signIn.social({
-      provider: "spotify",
-      callbackURL: "/dashboard",
-      scopes: [
-        "user-read-private",
-        "user-read-email",
-        "playlist-read-private",
-        "playlist-read-collaborative",
-        "user-library-read",
-        "user-read-recently-played",
-      ],
-    });
+    await SpotifyLogin();
   };
 
   return (
@@ -169,36 +155,19 @@ export default function LoginForm() {
                     />
                   </svg>
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   className=""
                   type="button"
                   onClick={handleSpotifyLogin}
                 >
-                  <svg
-                    height="512"
-                    viewBox="0 0 176 176"
-                    width="512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g id="Layer_2" data-name="Layer 2">
-                      <g id="_62.spotify" data-name="62.spotify">
-                        <circle
-                          id="background"
-                          cx="88"
-                          cy="88"
-                          fill="#12c64b"
-                          r="88"
-                        />
-                        <g id="icon" fill="#fff">
-                          <path d="m119.79 120.53a5.21 5.21 0 0 1 -7.12 1.87c-13.69-8-29.5-9.28-40.36-9a100.22 100.22 0 0 0 -20.93 2.76 5.21 5.21 0 0 1 -2.76-10 108.5 108.5 0 0 1 23.08-3.16 102.33 102.33 0 0 1 22.24 1.61 75.11 75.11 0 0 1 24 8.76 5.2 5.2 0 0 1 1.85 7.16z" />
-                          <path d="m129.47 100.42a6.16 6.16 0 0 1 -5.33 3.06 6.08 6.08 0 0 1 -3.11-.85c-16.21-9.47-34.93-11-47.8-10.6a118.31 118.31 0 0 0 -24.79 3.27 6.17 6.17 0 0 1 -3.27-11.89 127.88 127.88 0 0 1 27.34-3.7 119.43 119.43 0 0 1 26.35 1.91 88.81 88.81 0 0 1 28.4 10.38 6.17 6.17 0 0 1 2.21 8.42z" />
-                          <path d="m142 78.39a7.55 7.55 0 0 1 -10.35 2.71c-38.54-22.52-88.53-9.13-89-9a7.57 7.57 0 1 1 -4-14.59 157.1 157.1 0 0 1 33.45-4.51 148.15 148.15 0 0 1 32.31 2.34 109.15 109.15 0 0 1 34.84 12.66 7.57 7.57 0 0 1 2.75 10.39z" />
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
-                </Button>
+                  <Image
+                    src="/spotify.svg"
+                    alt="Spotify"
+                    width={20}
+                    height={20}
+                  />
+                </Button> */}
               </div>
             </div>
           </CardFooter>

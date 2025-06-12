@@ -194,6 +194,14 @@
   .text-transparent {
     color: transparent;
   }
+
+  .to-gradient-radial-spotify {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--spotify) 100%);
+  }
+
+  .from-gradient-radial-spotify {
+    background: linear-gradient(90deg, var(--primary) 50%, var(--spotify) 100%);
+  }
 }
 
 #root {
