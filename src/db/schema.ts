@@ -71,9 +71,10 @@ export const clientsTokens = pgTable("clients_tokens", {
   userId: text("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
+  provider: text("provider").notNull(),
   access_token: text("access_token").notNull(),
-  token_type: text("token_type").notNull(),
-  expires_in: integer("expires_in").notNull(),
+  token_type: text("token_type"),
+  expires_in: integer("expires_in"),
   createdAt: timestamp("created_at").$defaultFn(
     () => /* @__PURE__ */ new Date(),
   ),
