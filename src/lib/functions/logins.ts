@@ -1,6 +1,6 @@
 import { authClient } from "../auth-client";
 
-export const SpotifyLogin = async () => {
+export const SpotifyLoginProvider = async () => {
   await authClient.signIn.social({
     provider: "spotify",
     callbackURL: "/dashboard",

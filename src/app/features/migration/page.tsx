@@ -1,51 +1,43 @@
-"use client";
-import Image from "next/image";
+import { eq } from "drizzle-orm";
+import { headers } from "next/headers";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { GoogleLogin, SpotifyLogin } from "@/lib/functions/logins";
+import { db } from "@/db";
+import { accounts } from "@/db/schema";
+import { auth } from "@/lib/auth";
+import CardMusicStreaming from "./_components/card-streamin";
 
-const Migration = () => {
+const Migration = async () => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  
   const migrationsList = [
     {
       id: 1,
       name: "Spotify",
       icon: "/spotify.svg",
       color: "hover:bg-[#1db954]/70",
-      onClick: SpotifyLogin,
+      type: 'spotify' as const,
     },
     {
       id: 2,
       name: "Youtube Music",
       icon: "/youtube-music.svg",
       color: "hover:bg-[#ff0000]/70",
-      onClick: GoogleLogin,
+      type: 'google' as const,
     },
   ];
+
   return (
     <div className="flex h-screen flex-col items-center bg-zinc-50 p-5">
       <h1 className="text-2xl font-bold">Selecione a fonte de músicas</h1>
 
       <div className="mt-16 flex flex-wrap gap-4">
         {migrationsList.map((migration) => (
-          <Card
+          <CardMusicStreaming
             key={migration.id}
-            className={`size-[147px] text-zinc-900 shadow-lg transition-all duration-300 hover:scale-105 hover:text-white hover:shadow-xl ${migration.color}`}
-            onClick={migration.onClick}
-          >
-            <CardHeader className="flex flex-col items-center justify-center">
-              <span className="text-sm font-bold whitespace-nowrap">
-                {migration.name}
-              </span>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center justify-center">
-              <Image
-                src={migration.icon}
-                alt={migration.name}
-                width={50}
-                height={50}
-              />
-            </CardContent>
-          </Card>
+            streamingProp={migration}
+          />
         ))}
       </div>
     </div>
